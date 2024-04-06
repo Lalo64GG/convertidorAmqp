@@ -7,12 +7,18 @@ const PORT = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+let datosESP32 = [];
 
 // Ruta para recibir datos del ESP32
 app.post('/esp32', (req, res) => {
   const distancia = req.body.distancia;
   console.log('Distancia recibida:', distancia);
 
+  // Guardar los datos en el array
+  datosESP32.push({
+    distancia: distancia,
+    timestamp: new Date().toISOString() // Agregar una marca de tiempo
+  });
   // Conexión al servidor AMQP y envío de datos
   amqp.connect('amqp://34.196.166.98/', function(error0, connection) {
     if (error0) {
@@ -44,6 +50,11 @@ app.post('/esp32', (req, res) => {
     });
   });
 });
+
+// Ruta GET para acceder a los datos guardados
+app.get('/datosESP32', (req, res) => {
+    res.json(datosESP32);
+  });
 
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
