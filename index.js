@@ -52,7 +52,7 @@ app.post('/esp32', (req, res) => {
 });
 
 // Ruta GET para acceder a los datos guardados
-app.get('/datosESP32', (req, res) => {
+app.get('/datos', (req, res) => {
     res.json(datosESP32);
   });
 
