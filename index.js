@@ -12,6 +12,8 @@ let datosESP32 = [];
 // Ruta para recibir datos del ESP32
 app.post('/esp32', (req, res) => {
   const distancia = req.body.distancia;
+  const humedad = req.body.humedad;
+  const temperatura = req.body.temperatura;
   console.log('Distancia recibida:', distancia);
 
   // Guardar los datos en el array
