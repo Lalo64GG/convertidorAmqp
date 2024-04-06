@@ -14,7 +14,7 @@ app.post('/esp32', (req, res) => {
   const distancia = req.body.distancia;
   const humedad = req.body.humedad;
   const temperatura = req.body.temperatura;
-  console.log('Distancia recibida:', distancia);
+  console.log('Distancia recibida:', distancia, humedad, temperatura);
 
   // Guardar los datos en el array
   datosESP32.push({
@@ -37,7 +37,9 @@ app.post('/esp32', (req, res) => {
       const routingKey = 'daniel';
       const messageObject = {
         name: 'encierro 4',
-        distancia: distancia
+        distancia: distancia,
+        temperatura: temperatura,
+        humedad: humedad,
       };
       const msg = JSON.stringify(messageObject);
       channel.publish(exchange, routingKey, Buffer.from(msg));
