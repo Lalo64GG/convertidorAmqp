@@ -11,18 +11,21 @@ let datosESP32 = [];
 
 // Ruta para recibir datos del ESP32
 app.post('/esp32', (req, res) => {
-  const distancia = req.body.distancia;
-  const humedad = req.body.humedad;
   const temperatura = req.body.temperatura;
+  const humedad = req.body.humedad;
+  const nivel_luz = req.body.nivel_luz;
+  
   console.log('Distancia recibida:', distancia, humedad, temperatura);
 
   // Guardar los datos en el array
   datosESP32.push({
-    distancia: distancia,
+    temperatura,
+    humedad,
+    nivel_luz,
     timestamp: new Date().toISOString() // Agregar una marca de tiempo
   });
   // Conexión al servidor AMQP y envío de datos
-  amqp.connect('amqp://34.196.166.98/', function(error0, connection) {
+  amqp.connect('amqp://52.205.27.36/', function(error0, connection) {
     if (error0) {
       console.error('Error en la conexión AMQP:', error0);
       return res.status(500).send('Error en la conexión AMQP');
