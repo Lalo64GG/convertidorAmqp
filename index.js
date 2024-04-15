@@ -40,7 +40,6 @@ app.post('/esp32', (req, res) => {
       const routingKey = 'daniel';
       const messageObject = {
         name: 'encierro 4',
-        distancia: distancia,
         temperatura: temperatura,
         humedad: humedad,
       };
