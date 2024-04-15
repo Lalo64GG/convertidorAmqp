@@ -37,7 +37,7 @@ app.post('/esp32', (req, res) => {
       }
 
       const exchange = 'amq.topic';
-      const routingKey = 'daniel';
+      const routingKey = 'esp32.mqtt';
       const messageObject = {
         name: 'encierro 4',
         temperatura: temperatura,
