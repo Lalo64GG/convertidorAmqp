@@ -15,7 +15,7 @@ app.post('/esp32', (req, res) => {
   const humedad = req.body.humedad;
   const nivel_luz = req.body.nivel_luz;
   
-  console.log('Distancia recibida:', distancia, humedad, temperatura);
+  console.log('Distancia recibida:', humedad, temperatura);
 
   // Guardar los datos en el array
   datosESP32.push({
