@@ -61,8 +61,8 @@ function calcularPorcentaje(distancia) {
       const exchange = 'amq.topic';
       const routingKey = 'esp32.mqtt';
       const messageObject = {
-        temperature :temperatura,
-        humidity:humedad,
+        temperature:`${temperatura}`,
+        humidity:`${humedad}`,
         food:calcularPorcentaje(distancia_1),
         water:calcularPorcentaje(distancia_2),
         enclosureId: 1,
