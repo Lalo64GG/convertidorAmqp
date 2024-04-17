@@ -65,8 +65,8 @@ function calcularPorcentaje(distancia) {
         humidity:humedad,
         food:calcularPorcentaje(distancia_1),
         water:calcularPorcentaje(distancia_2),
-        enclosureId: 44,
-        datoId: 2,
+        enclosureId: 1,
+        datoId: 1,
         date: new Date().toISOString() 
       };
       const msg = JSON.stringify(messageObject);
