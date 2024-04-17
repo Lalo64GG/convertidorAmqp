@@ -38,7 +38,7 @@ function calcularPorcentaje(distancia) {
   let porcentaje;
   if (distancia >= 10) {
     porcentaje = '20%';
-  } else if (distancia >= 5) {
+  } else if (distancia <= 5 ) {
     porcentaje = '100%';
   } else {
     porcentaje = ((distancia / 10) * 100).toFixed(2) + '%'; // Porcentaje relativo al valor máximo (10)
